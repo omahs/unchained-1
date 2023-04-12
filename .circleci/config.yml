@@ -942,10 +942,14 @@ jobs:
             pulumi stack select $<< parameters.organization >>_PULUMI_ORG/prod-us-east-2
             pulumi config set --path unchained:monitoring.stack $<< parameters.organization >>_PULUMI_ORG/common/dependencies-us-east-2
             pulumi config set --path unchained:monitoring.environment monitoring
-            pulumi config set --path unchained:monitoring.githubOrg $<< parameters.organization>>_GITHUB_ORG
-            pulumi config set --path unchained:monitoring.githubOauthID $<< parameters.organization>>_GITHUB_OAUTH_ID
-            pulumi config set --path unchained:monitoring.githubOauthSecret $<< parameters.organization>>_GITHUB_OAUTH_SECRET --plaintext
             pulumi <<parameters.pulumi-command>> --suppress-outputs
+      - run:
+          name: promstack
+          working_directory: monitoring/promstack
+          command: |
+            ./build.sh mlnative-kube-promstack.jsonnet
+            kubectl apply --server-side -f manifests/setup
+            kubectl apply -f manifests/
 
   lint-and-test:
     description: lint and test project
@@ -1110,7 +1114,7 @@ workflows:
             - approve monitoring workflow
           <<: *only-develop
 
-      - deploy-monitoring:
+      - preview-monitoring:
           name: preview monitoring
           organization: TAXISTAKE
           pulumi-command: preview
