@@ -20,3 +20,12 @@ kubectl apply -f manifests/
 # Customizing
 
 https://github.com/prometheus-operator/kube-prometheus/blob/main/docs/customizing.md
+
+
+# TODO
+
+- rewrite the readme one level up
+- add traefic ingress for alertmanager
+- Add actual alerts to discord to alertmanager
+- Fix the CI pipeline to run these changes
+- Remove the generated code from the git
