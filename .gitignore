@@ -155,4 +155,4 @@ dist
 # vendor/
 
 monitoring/my-kube-prometheus/vendor
-# monitoring/my-kube-prometheus/manifests
+monitoring/my-kube-prometheus/manifests
