@@ -11,6 +11,7 @@ All of the state is kept in the repo for visibility of the changes and to make i
 # Usage
 
 ```sh
+jb install github.com/prometheus-operator/kube-prometheus/jsonnet/kube-prometheus@main # Creates `vendor/` 
 ./build.sh unchained-kube-promstack.jsonnet
 kubectl apply --server-side -f manifests/setup
 kubectl apply -f manifests/
