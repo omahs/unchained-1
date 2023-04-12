@@ -947,6 +947,7 @@ jobs:
           name: promstack
           working_directory: monitoring/promstack
           command: |
+            go install github.com/brancz/gojsontoyaml@latest
             ./build.sh mlnative-kube-promstack.jsonnet
             kubectl apply --server-side -f manifests/setup
             kubectl apply -f manifests/
