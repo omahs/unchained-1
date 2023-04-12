@@ -9,7 +9,7 @@ local kp =
         namespace: 'unchained-monitoring',
       },
       alertmanager+: {
-        config: importstr 'alertmanager.yaml',
+        config: importstr 'alertmanager-config.yaml',
       },
       prometheus+:: {
         // The namespaces to monitor with Prometheus.
@@ -19,7 +19,7 @@ local kp =
         config+: {
           sections+: {
             server+: {
-              root_url: 'http://grafana.dev.unchained.com/',
+              root_url: 'https://grafana.loveunchained.net/',
             },
           },
         },

@@ -13,5 +13,5 @@ stringData:
     [date_formats]
     default_timezone = UTC
     [server]
-    root_url = http://grafana.dev.unchained.com/
+    root_url = https://grafana.loveunchained.net/
 type: Opaque
